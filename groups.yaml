@@ -1,0 +1,60 @@
+############################################################
+#                                                          #
+#                     Group Tabs                           #
+#                                                          #
+############################################################
+
+default_view:
+  view: yes
+  entities:
+   - group.sun
+   - sensor.netatmo_indoor_temperature
+   - sensor.netatmo_outdoor_temperature
+   - group.lights
+   - climate.salotto
+   - climate.camera_letto
+   - group.iss
+   - automation.turn_on_the_lights_when_the_sun_sets
+#    group.all_lights
+
+Luci:
+  view: yes
+  entities:
+   - group.veranda
+   - group.camera_da_letto
+Weather:
+  view: yes
+  icon: mdi:temperature-celsius
+  name: Weather
+  entities:
+   - group.sun
+
+
+############################################################
+#                                                          #
+#                  Entities Groups                         #
+#                                                          #
+############################################################
+
+Sun:
+  entities:
+   - sun.sun
+   - sensor.yr_symbol
+
+ISS:
+ - camera.iss
+ - binary_sensor.iss
+
+Lights:
+ - light.all_hue_lights
+ - light.veranda
+ - light.camera_da_letto
+
+Veranda:
+ - light.hue_color_lamp_3
+ - light.hue_color_lamp_2
+
+Camera da letto:
+ - light.piantana
+ - light.comodino
+

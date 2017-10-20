@@ -1,0 +1,19 @@
+group.all_lights:
+  hidden: False
+sensor.netatmo_indoor_temperature:
+  friendly_name: Temp. interna
+sensor.netatmo_outdoor_temperature:
+  friendly_name: Temp. esterna
+
+# Luci
+light.hue_color_lamp_2:
+  friendly_name: Muro
+
+light.hue_color_lamp_3:
+  friendly_name: Piantana
+
+light.piantana:
+  friendly_name: Piantana
+
+light.comodino:
+  friendly_name: Comodino
