@@ -8,4 +8,4 @@
     entity_id: group.all_devices
     state: 'home'
   action:
-    service: light.turn_on
+    service: homeassistant.turn_on

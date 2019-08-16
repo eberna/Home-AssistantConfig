@@ -1,0 +1,9 @@
+# Sensors
+
+- platform: template
+  sensors:
+    hs110_current_consumption:
+      friendly_name: 'Consumo Attuale'
+      #value_template: '{{ states.switch.stufa.attributes.current_consumption[:-2] | float }}'
+      value_template: '{{ states.switch.stufa.attributes.current_power_w }}'
+      unit_of_measurement: "W"

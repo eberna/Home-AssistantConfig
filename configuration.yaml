@@ -12,6 +12,8 @@ homeassistant:
   time_zone: !secret time_zone
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
 
 # Show links to resources in log and frontend
 # introduction:
@@ -25,7 +27,7 @@ config:
 # Http Config
 http:
   # Uncomment this to add a password (recommended!)
-  api_password: !secret api_pw
+  #  api_password: !secret api_pw
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret baseurl
   server_port: !secret serverport
@@ -67,9 +69,20 @@ sun:
 
 # Philips Hue Hub
 light:
-  platform: hue
-  host: !secret huehost
-  allow_unreachable: true
+  - platform: hue
+    host: !secret huehost
+    allow_unreachable: true
+
+
+  - platform: yeelight
+    devices:
+      192.168.1.24:
+        name: Yeelight
+        transition: 1000
+        use_music_mode: False #(defaults to False)
+        save_on_change: True #(defaults to True)
+
+
 
 # Netatmo weather station
 netatmo:
@@ -91,6 +104,19 @@ device_tracker:
     password: !secret tadopass
     home_id: !secret tadohomeid
 
+# Sonos speaker
+media_player:
+  - platform: sonos
+    hosts:
+      - !secret sonos1ip
+
+# Tplink hs110 switch
+switch:
+  - platform: tplink
+    host: !secret hs110ip
+
+
+sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
